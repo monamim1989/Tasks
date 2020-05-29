@@ -2,9 +2,6 @@ $.ajax({
 	url: 'https://api.github.com/users',
 	type: "get",
 	dataType: "json",
-	beforeSend: function(xhr) {
-        xhr.setRequestHeader("Authorization", "token e6e11ccb47d7883834a077f2d7b4ace63357ca48");
-    },
 	   
 	success: function(data) {
 	    generateTable(data);
@@ -28,9 +25,6 @@ function addRow(rowData) {
 	  type: "get",
 	  url: 'https://api.github.com/users/'+rowData.login,
 	  dataType: "json",
-	  beforeSend: function(xhr) {
-	        xhr.setRequestHeader("Authorization", "token e6e11ccb47d7883834a077f2d7b4ace63357ca48");
-	  },
 	        
 	  success: function(data) {
 	     var buttonId = "btn" + rowData.login;
@@ -41,11 +35,7 @@ function addRow(rowData) {
 	 		$.ajax({
 	 			type: "get",
 	 			url: "https://api.github.com/users/"+rowData.login,
-	 			dataType: "json",
-	 			beforeSend: function(xhr) {
-	 			      xhr.setRequestHeader("Authorization", "token e6e11ccb47d7883834a077f2d7b4ace63357ca48");
-	 			},
-	 			
+	 			dataType: "json", 			
 	 		}).then(function(data) {
 	 			$(`#${buttonId}`).html(data.followers);
 	 		})
