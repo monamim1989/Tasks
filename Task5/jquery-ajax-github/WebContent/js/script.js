@@ -31,8 +31,7 @@ function addRow(rowData) {
 		 var entryId = "val" + rowData.login;
 	     row.append($(`<td class='val' id=${entryId}>` + `<button class='btn btn-success' id=${buttonId}>?</button>` + "</td>"));
 	 	 
-	     $(`#${buttonId}`).click(function() {
-	 		console.log(`btn clicked! : ${buttonId}`)	 		
+	     $(`#${buttonId}`).click(function() {	 		
 	 		$.ajax({
 	 			type: "get",
 	 			url: "https://api.github.com/users/"+rowData.login,
