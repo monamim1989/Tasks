@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.hibernate.com.task3.Emp" table="emp100">
+<id name="id" type="int" column="employee_id"></id>
+<map name="certificates" cascade="all">
+  <key column="employee_id"/>
+  <index column="certificate_type" type="string"/>
+  <one-to-many class="com.hibernate.com.task3.Certificate"/>
+</map>
+<property name="name" column="employee_name" type="string"></property>
+</class>
+<class name="com.hibernate.com.task3.Certificate" table="cert100">
+<id name="id" type="int" column="id">
+  <generator class="native"/>
+</id>
+<property name="name" column="certificate_name" type="string"/>
+</class>
+</hibernate-mapping>
