@@ -28,7 +28,8 @@ function addRow(rowData) {
 	        
 	  success: function(data) {
 	     var buttonId = "btn" + rowData.login;
-	     row.append($("<td>" + `<button class='btn btn-success' id=${buttonId}>?</button>` + "</td>"));
+		 var entryId = "val" + rowData.login;
+	     row.append($(`<td class='val' id=${entryId}>` + `<button class='btn btn-success' id=${buttonId}>?</button>` + "</td>"));
 	 	 
 	     $(`#${buttonId}`).click(function() {
 	 		console.log(`btn clicked! : ${buttonId}`)	 		
@@ -37,7 +38,7 @@ function addRow(rowData) {
 	 			url: "https://api.github.com/users/"+rowData.login,
 	 			dataType: "json", 			
 	 		}).then(function(data) {
-	 			$(`#${buttonId}`).html(data.followers);
+	 			$(`#${entryId}`).html(data.followers);
 	 		})
 	 	 })
 	 	 
