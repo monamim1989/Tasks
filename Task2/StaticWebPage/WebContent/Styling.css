@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+img {
+    width: 170px;
+    height: 75px;
+    align: center;
+    display-fit: cover;
+}
